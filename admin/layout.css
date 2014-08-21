@@ -1,0 +1,203 @@
+/*
+ *  © BitcoinDice 
+
+
+ 
+*/
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  background-image: url('imgs/bg.png');
+  background-attachment: fixed;
+  color: #4F556C;
+  font-family: sans-serif;
+}
+h1 {
+  margin-bottom: 5px;
+}
+a {
+  color: #9f9ea3;
+  text-decoration: none;
+  font-size: 12px;
+}
+a:hover {
+  color: #4F556C;
+}
+a:active {
+  position: relative;
+  top: 1px;
+}
+input:focus, select:focus {
+  outline: none;
+}
+#all {
+  width: 100%;
+  text-align: center;
+}
+#content {
+  width: 998px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.main {
+  width: 860px; 
+  margin-top: 5px; 
+  overflow: hidden; 
+  padding: 5px; 
+  margin-left: auto; 
+  margin-right: auto; 
+  text-align: left; 
+  background-color: rgba(255, 255, 255, 0.3); 
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px; 
+}
+.menu_ { 
+  width: 116px; 
+}
+.menu_ ul { 
+  margin: 0; 
+}
+.menu_ ul li { 
+  list-style: none outside none; 
+  padding-bottom: 6px 
+}
+.menu_ ul a { 
+  display: inline-block; 
+  text-align: center; 
+  width: 116px; 
+  height: 38px; 
+  line-height: 38px; 
+  font-weight: bold; 
+  color: #edeef2; 
+  -webkit-border-radius: 2px; 
+  -moz-border-radius: 2px; 
+  border-radius: 2px; 
+  background-color: #7A7E90; 
+  font-size: 13px; 
+  border: 1px solid #7A7E90; 
+  border-bottom: 1px solid #616372;
+}
+.menu_ ul a:active { 
+  border-bottom: 1px solid #7A7E90; 
+  top: inherit; 
+}
+.menu_ ul a:hover { 
+  color: #4F556C; 
+}
+.menu_ ul a.active_ {
+  height: 36px;
+  border-bottom: 3px solid #616372;
+}
+.obsah { 
+  float: right; 
+  width: 700px; 
+  padding: 15px; 
+  font-family: "Open Sans",sans-serif; 
+  background-color: rgba(255, 255, 255, 0.5); 
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px; 
+}
+table { 
+  width: 100%; 
+}
+table td {
+  vertical-align: top;
+}
+.paticka { 
+  margin-top: 5px; 
+  text-align: center; 
+  font-size: 13px; 
+  color: #CBCAD1; 
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; 
+}
+.head {
+  margin-top: 0; 
+  text-align: center; 
+  font-size: 13px; 
+  padding: 10px 5px; 
+  -webkit-border-top-right-radius: 0; 
+  -webkit-border-top-left-radius: 0; 
+  -moz-border-radius-topright: 0; 
+  -moz-border-radius-topleft: 0; 
+  border-top-right-radius: 0; 
+  border-top-left-radius: 0; 
+}
+.head a { 
+  color: #666b7f; 
+}
+input { 
+  width: 150px; 
+  padding: 3px; 
+}
+select {
+  width: 160px;
+  padding: 4px;
+}
+input[type="submit"] { 
+  width: 160px; 
+}
+.zprava {
+  background-color: rgba(255, 255, 255, 0.4); 
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px; 
+  padding: 8px;
+  width: 98%;
+  border: 1px solid  rgba(255, 255, 255, 0.2);
+  margin-bottom: 5px;
+}
+input[type=checkbox] {
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px; 
+  width: 1px; 
+  margin: -1px; 
+  padding: 0;
+  border: 0;
+}
+input[type=checkbox] + label.chckbxLabel {
+  padding-left: 20px;
+  height: 15px; 
+  display: inline-block;
+  line-height: 15px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 15px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type=checkbox]:checked + label.chckbxLabel {
+  background-position: 0 -15px;
+}
+.chckbxLabel {
+  background-image: url('imgs/checkbox.png');
+}
+fieldset {
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px; 
+  padding: 12px 20px;
+  padding-bottom: 24px;
+  border: 1px solid #4F556C;  
+}
+legend {
+  padding: 0 3px;
+  font-weight: bold;
+}
+.win {
+  color: green;
+}
+.lose {
+  color: red;
+}

@@ -1,0 +1,669 @@
+/*
+ *  © BitcoinDice 
+
+
+ 
+*/
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: 'futura-bold';
+  src: url('fonts/FuturaStd-Bold.eot');
+  src: url('fonts/FuturaStd-Bold.woff') format("woff"), url('fonts/FuturaStd-Bold.ttf') format("truetype"), url('fonts/FuturaStd-Bold.svg') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  width: 100%;
+  background-image: url('images/bg.png');
+  background-attachment: fixed;
+  background-size: 100%;
+  
+  font-family: "futura-bold",sans-serif;
+  color: #D0650F;
+}
+a {
+  color: #eaeaea;
+  text-decoration: none;
+  font-size: 12px;
+}
+a:hover {
+  color: #e2c4a1;
+}
+a:active {
+  position: relative;
+  top: 1px;
+}
+input:focus, button:focus {
+  outline: none;
+}
+#all {
+  width: 100%;
+  text-align: center;
+}
+#content {
+  width: 998px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+#all.menu-line-draw {
+  width: 100%;
+  height: 60px;
+}
+#all.menu-line {
+  position: fixed;
+  z-index: 900;
+  height: 60px;
+  background-color: rgba(208, 153, 35, 0.93);
+  -webkit-box-shadow: 0px 3px 5px rgba(50, 50, 50, 0.82);
+  -moz-box-shadow: 0px 3px 5px rgba(50, 50, 50, 0.82);
+  box-shadow: 0px 3px 5px rgba(50, 50, 50, 0.82);
+}
+.logo {
+  float: left;
+  line-height: 60px;
+}
+.logo a {
+  text-decoration: none;
+  padding: 10px 0;
+  padding-left: 60px;
+  background-image: url('images/dice.png');
+  background-repeat: no-repeat;
+  font-size: 18px;
+}
+.logo a:active {
+  position: relative;
+  top: 1px;
+}
+.menu {
+  float: right;
+  line-height: 60px;
+}
+.menu a {
+  padding: 0 10px;
+}
+input.l {
+	width: 410px;
+	background: #fefefe;
+	border: 1px solid #bbb;
+	font-family: sans-serif;
+	font-size: 12px;
+	color: #333;
+	padding: 7px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	outline: none;
+	vertical-align: middle;
+  width: 250px;
+}
+a.microbuttons {
+  text-decoration: underline;
+  color: darkgreen;
+  font-size: 10px;  
+}
+a.microbuttons:hover {
+  text-decoration: none;  
+}
+.downer {
+  margin-top: 45px;
+}
+#content.stats_switcher {
+  text-align: left;
+  height: 50px;
+  line-height: 50px;
+  font-family: "Open Sans",sans-serif;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+#content.stats_switcher a {     /* stats - inactive tab */
+  display: inline-block;
+  text-align: center;
+  width: 160px;
+  height: 50px;
+  color: #e2c4a1;     
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #cc7737;
+  font-size: 17px;
+  font-weight: bold;
+}
+#content.stats_switcher a:hover {
+  color: white;
+}
+#content.stats_switcher a.current {     /* stats - active tab */
+  height: 54px;
+  color: white;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #d0650f;    
+}
+#content.stats_switcher a.mini { /* stats - right-placed tabs */
+  width: 60px;
+  float: right;
+  margin-left: 4px;
+}
+#content.stats_switcher a.current_Bot { /* active bot tab (stats - right-placed tabs) */
+  height: 47px;
+  border-top: 3px solid #D0650F; 
+}
+#all.stats {
+  background-image: url('images/stats_sep.png');
+  background-repeat: repeat-x;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-family: "Open Sans",sans-serif;
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+#all.footer {
+  height: 37px;
+  line-height: 37px;
+  background-color: #D0650F;
+  font-family: "Open Sans",sans-serif;
+  font-size: 14px;
+  color: white; 
+}
+#content.footer {
+  text-align: center;
+}
+.news_single {
+  padding: 14px;
+  border-color: rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);  
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.news_single .news_single_time {
+  font-style: italic;
+}
+#composeTxt {
+  width: 922px;
+  padding: 4px;
+}
+#composeBtn {
+  width: 60px;
+  padding: 0;
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  font-size: 11px;
+  text-align: center;
+  color: #edeef2;
+  font-weight: bold;
+  background-color: #CC7737;
+  border: 1px solid #CC7737;
+  border-bottom: 1px solid #D0650F;
+  cursor: hand;
+  cursor: pointer;
+}
+#composeBtn:hover {
+  color: #e2c4a1;
+}
+#composeBtn:active {
+  border-bottom: 1px solid #CC7737;
+}
+#all.c {
+  margin-top: 40px;
+  font-family: Sans-Serif;
+  font-size: 14px;
+  color: white; 
+}
+#content.centers {
+  text-align: center;
+  height: 400px;
+}
+.wrap {
+  width: 454px;   /* 940px */
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.c_center {
+  width: 414px;
+  height: 325px;
+  padding: 20px;
+  float: left;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: rgba(188, 129, 41, 0.7);
+}
+.c_right {
+  width: 414px;
+  height: 325px;
+  float: right;
+  padding: 20px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: rgba(188, 129, 41, 0.7);
+  display: none;
+}
+.c_center a.balanceRegulators {
+  display: inline-block;
+  text-align: center;
+  width: 107px;
+  height: 38px;
+  line-height: 38px;
+  font-weight: bold;
+  color: #edeef2;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #CC7737; 
+  font-size: 13px;
+  border: 1px solid #CC7737;      
+  border-bottom: 1px solid #D0650F;
+}
+.c_center a.balanceRegulators:hover {
+  color: #e2c4a1;   
+}
+.c_center a.balanceRegulators:active {
+  border-bottom: 1px solid #CC7737;
+  top: inherit;
+}
+#c_centerSep {
+  width: 44%;
+  height: 1px;
+  border-top: 1px dotted #d1d1d1;
+  margin-top: 6px;
+}
+.c_centerSepR {
+  float: right;
+}
+.c_centerSepL {
+  float: left;
+}
+#c_centerSepDice {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  margin-left: 200px;
+  background-image: url('images/diceSep.png');
+}
+.bt_input {
+  font-size: 18px;
+  background-color: #fcfcfc;
+  border: 1px solid #fcfcfc;
+  height: 35px;
+  width: 166px;
+  padding: 0 8px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-weight: bold;
+  color: #c66921;
+}
+.bt_input:focus {
+  background-color: #FFF8D5;
+  border: 1px solid #FFF8D5;
+}
+.readonly:focus {
+  background-color: #fcfcfc;
+  border: 1px solid #fcfcfc;
+}
+.top3 {
+  margin-top: 3px;
+}
+.wagerInput {
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 95px;
+}
+.profitInput {
+  width: 123px;
+}
+.bt_button {
+  position: relative;
+  bottom: 2px;
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  font-size: 11px;
+  text-align: center;
+  color: #edeef2;
+  font-weight: bold;
+  background-color: #CC7737;
+  border: 1px solid #CC7737;
+  border-bottom: 1px solid #D0650F;
+}
+.bt_button:active {
+  top: inherit;
+  border-bottom: 1px solid #CC7737;
+}
+.double {
+  width: 28px;
+}
+.max {
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  width: 38px;
+}
+.rightSep {
+  border-right: 1px dotted #D0650F;
+}
+.betBtn {
+  display: inline-block;
+  margin-top: 25px;
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-weight: bold;
+  font-size: 22px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  background-color: #c66921;
+  -moz-box-shadow: 2px 2px 1px #0c0b09;
+  -webkit-box-shadow: 2px 2px 1px #0c0b09;
+  box-shadow: 2px 2px 1px #0c0b09;
+  color: #e2c4a1;
+  font-family: "Open Sans",sans-serif;
+}
+.betBtn:hover {
+  background-color: #c9712e;
+  color: #e2c4a1;
+}
+.betBtn:active {
+  -moz-box-shadow: 1px 1px 1px #0b0b0f;
+  -webkit-box-shadow: 1px 1px 1px #0b0b0f;
+  box-shadow: 1px 1px 1px #0b0b0f;
+}
+.betTb {
+  width: 100%;
+  height: 80px;
+  margin-top: 84px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #FCFCFC;
+  color: #CC7737;
+  font-family: "Open Sans",sans-serif;
+}
+.bettingBot_betTb {
+  margin-top: 0;
+  height: 239px;
+}
+.betTbL {
+  float: left;
+  width: 27%;
+  padding: 2px 6px;
+  margin: 8px;
+  height: 56px;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 2px dotted #d17f45;
+  color: #d17f45;
+  cursor: pointer;
+  cursor: hand;
+}
+.under_over_txt {
+  font-size: 10px;
+}
+.under_over_num {
+  position: relative;
+  top: 6px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.betTbL_bB {
+  height: 46px;
+}
+.under_over_txt_bB {
+
+}
+.under_over_num_bB {
+  top: inherit;
+}
+.betTbC {
+  float: left;
+  width: 25%;
+  margin-left: 14px;
+  margin-top: 8px;
+  padding: 2px 6px;
+  padding-right: 2px;
+  padding-left: 22px;
+  border-left: 1px dotted #E3E3E3;
+  border-right: 1px dotted #E3E3E3;
+}
+.betTbR {
+  float: left;
+  width: 25%;
+  margin-top: 8px;
+  padding: 2px 14px;
+  padding-right: 0;
+  padding-left: 22px;
+}
+.betTbWrap {
+  width: 100%;
+  height: 70px;
+}
+.betTb_s {
+  width: 100%;
+  padding: 6px 12px;
+  padding-top: 0;
+  height: 76px;
+}
+.betTb_s .betTb_fixed {
+  width: 95px;
+}
+.betTb_s .betTb_rto {
+  width: 95px;
+}
+.betTbR .betTb_payoutR {
+  width: 18px;
+}
+.betTb_input {
+  border: 2px solid #c66921;
+  width: 50px;
+}
+.betTb_input:focus {
+  border: 2px solid #c66921; 
+}
+.betTb_payoutL {
+  border-right: none;
+  padding-right: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.betTb_payoutL:focus {
+  border-right: none;
+}
+.betTb_payoutR {
+  border-left: none;
+  width: 10px;
+  padding-left: 4px;
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  color: #e2c4a1;           
+}
+.betTb_payoutR:focus {
+  border-left: none;
+  background-color: inherit;
+}
+#bets_st_table {
+  width: 100%;
+  font-size: 12px;
+  border-collapse: collapse;
+  color: #464a5e;
+}
+#bets_st_table tr th {
+  height: 37px;
+  line-height: 37px;
+  color: white;
+  padding: 0 6px;
+}
+#bets_st_table tr td {
+  height: 37px;
+  padding: 0 6px;
+  height: 37px;
+  width: 12%;
+}
+#bets_st_table tr td.first {
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-topleft: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+#bets_st_table tr td.last {
+  -webkit-border-bottom-right-radius: 2px;
+  -webkit-border-top-right-radius: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -moz-border-radius-topright: 2px;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+}
+#bets_st_table tr td.right {
+  white-space: nowrap;
+}
+#bets_st_table tr td.betId {
+  color: #9f9ea3;
+}
+#bets_st_table tr td.win {
+  color: green;
+}
+#bets_st_table tr td.lose {
+  color: red;
+}
+#bets_st_table tr {
+}
+#bets_st_table tr.suda {
+  background-color: rgba(21,21,43,0.07);
+}
+.stats_ {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  padding: 15px;  
+}
+.stats_ table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.stats_ table th,.stats_ table td {
+  width: 33%;
+  text-align: center;
+  padding: 40px 0;
+}
+.stats_ table th {
+  font-size: 19px;
+  border-bottom: 1px solid gray;
+  padding: 20px 0;
+}
+.stats_ table td {
+  color: #aaa5a5;
+  font-size: 25px;
+  border-bottom: 1px dotted #e5e3ea;
+}
+.stats_ table .center {
+  width: 15%;
+  font-size: 13px;
+  border-left: 1px dotted #e5e3ea;
+  border-right: 1px dotted #e5e3ea;
+}
+.stats_ table tr.wins td {
+  color: #78D16B;
+}
+.stats_ table tr.losses td {
+  color: #EE7171;
+}
+.stats_ table tr.wl td {
+  color: #FF9C00;
+}
+input[type=checkbox].bB_checkbox {
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px; 
+  width: 1px; 
+  margin: -1px; 
+  padding: 0;
+  border: 0;
+}
+input[type=checkbox].bB_checkbox + label.bB_label {
+  padding-left: 20px;
+  height: 15px; 
+  display: inline-block;
+  line-height: 15px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 15px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type=checkbox].bB_checkbox:checked + label.bB_label {
+  background-position: 0 -15px;
+}
+.bB_label {
+  background-image: url('images/bB_checkbox.png');
+}
+.betTb_increase {
+  width:   
+}
+.top5 {
+  position: relative;
+  top: 5px;
+}
+.increaseLoss {
+  width: 20px;
+}
+.increaseLossLeft {
+  width: 60px;
+}
+#bB_closer {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin-left: 412px;
+  margin-top: -27px;
+  background-image: url('images/bB_close.png');
+}
+#bB_closer:active {
+  position: absolute;
+  top: inherit;
+}
+.lessHeight {
+  height: 28px;
+  font-size: 15px;
+}
+.news_single_time {
+  font-size: 13px;
+}
