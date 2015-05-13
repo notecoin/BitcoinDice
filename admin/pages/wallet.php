@@ -50,7 +50,7 @@ if ($page==1) {
   <b>Receiving address:</b><br>
   <big>
   <?php
-    echo "1NPTYuzo2imRi7oiow6gszX3QQccnPWAGJ";
+    echo "THIS IS A SCAM, AVOID AT ALL COST";
   ?>
   </big>
   </div>
