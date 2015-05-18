@@ -28,6 +28,7 @@ if (isset($_GET['checkCons'])) {
   $w_file=fopen('../inc/driver-conf.php','wb');
   fwrite($w_file,"<?php \n");          
   fwrite($w_file,'$driver_login=\'http://'.$_POST['w_user'].':'.$_POST['w_pass'].'@'.$_POST['w_host'].':'.$_POST['w_port'].'/\';'."\n");
+  fwrite($w_file,'$DiceAccount=\''.$_POST['w_account'].'\';'."\n");
   fwrite($w_file,"?>");      ?><?php
   fclose($w_file);
 
@@ -185,6 +186,10 @@ if ($step==3 && (!is_writable('../inc/db-conf.php') || !is_writable('../inc/driv
                 <tr>
                   <td>Port:</td>
                   <td><input type="text" name="w_port" id="w_port" placeholder="Wallet port"></td>
+                </tr>
+                <tr>
+                  <td>Account:</td>
+                  <td><input type="text" name="w_account" id="w_account" placeholder="Wallet Account"></td>
                 </tr>
               </table>
             </form>

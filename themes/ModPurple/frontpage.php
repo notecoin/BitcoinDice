@@ -45,7 +45,7 @@
               <br>
               <div style="float: left;">
                 <small><small><b>BET AMOUNT</b></small></small><br>
-                <input type="text" id="bt_wager" class="bt_input top3 wagerInput" value="0.0000001"><a href="#" onclick="javascript:clickdouble();return false;" class="bt_button double rightSep">2x</a><a href="#" onclick="javascript:clickmax();return false;" class="bt_button max">MAX</a>
+                <input type="text" id="bt_wager" class="bt_input top3 wagerInput" value="0.00000000"><a href="#" onclick="javascript:clickdouble();return false;" class="bt_button double rightSep">2x</a><a href="#" onclick="javascript:clickmax();return false;" class="bt_button max">MAX</a>
               </div>
               <div style="float: right;">
                 <small><small><b>PROFIT ON WIN</b></small></small><br>
@@ -131,7 +131,7 @@
                     <td valign="top" style="padding-top: 10px;">
                       <div>
                         <small><small><b>BASE BET</b></small></small><br>
-                        <input type="text" id="bt_wager_bB" class="bt_input top3 betTb_input betTb_fixed lessHeight" value="0.0000001">
+                        <input type="text" id="bt_wager_bB" class="bt_input top3 betTb_input betTb_fixed lessHeight" value="0.00000000">
                       </div>                    
                     </td>
                     <td valign="top" style="padding-top: 8px;">
