@@ -89,7 +89,7 @@ if (isset($_POST['s_title'])) {
       <td>Bankroll/max bet ratio</td>
       <td><input type="text" name="bankroll_maxbet_ratio" value="<?php echo $settings['bankroll_maxbet_ratio']; ?>"></td>
       <td><small><i>The default ratio between amount in wallet and max available bet is set to 25. So for example if you want to allow players to bet 1 <?php echo $settings['currency_sign']; ?>, you have to have 25 <?php echo $settings['currency_sign']; ?> in wallet.</i></small></td>
-    </tr>
+    </tr>	
     <tr>
       <td></td>
       <td><input type="submit" value="Save"></td>
