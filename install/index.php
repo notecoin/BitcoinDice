@@ -15,10 +15,7 @@ if (isset($_GET['checkCons'])) {
 
 	if(isset($_POST['mform'])) 
     {
-		        
-        //Checking whether a particular check box is selected
-        //See the IsChecked() function below
-        if(IsChecked('rpcssl','https'))
+		if(IsChecked('rpcssl','https'))
         {
 			$rpcproto='https';
         }else{
