@@ -13,16 +13,15 @@ if (isset($_GET['checkCons'])) {
     exit();
   }
 
-	if(isset($_POST['mform'])) 
-    {
-		if(IsChecked('rpcssl','https'))
+if(isset($_POST['mform'])) {
+		if(IsChecked('rpcssl','enabled'))
         {
 			$rpcproto='https';
         }else{
 			$rpcproto='http';
 		}
  
-	}
+  }
   
   $included_=true;
   include 'db_data.php';
@@ -184,7 +183,7 @@ if ($step==3 && (!is_writable('../inc/db-conf.php') || !is_writable('../inc/driv
               <table>
 			    <tr>
                   <td>Rpc Ssl:</td>
-                  <td><input type="checkbox" name="rpcssl[]" value="https" />Enabled<br /></td>
+                  <td><input type="checkbox" name="rpcssl[]" value="enabled" /> <small>(If enabled, make shore to setup bitcoind accordingly.)</small><br /></td>
                 </tr>
                 <tr>
                   <td>Host:</td>

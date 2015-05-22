@@ -7,7 +7,7 @@
 */
 
 if(isset($_POST['rpcssl']) && 
-   $_POST['rpcssl'] !== 'https') 
+   $_POST['rpcssl'] !== 'enabled') 
 {
     $rpcproto="http";
 }
