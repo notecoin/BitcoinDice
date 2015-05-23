@@ -20,6 +20,10 @@ include '../inc/db-conf.php';
 include '../inc/functions.php';
 if (!empty($_POST['hash_one']) && !empty($_POST['hash_sec']) && mysql_num_rows(mysql_query("SELECT `id` FROM `admins` WHERE `username`='".prot($_POST['hash_one'])."' AND `passwd`='".md5($_POST['hash_sec'])."' LIMIT 1"))!=0) {
   $this_admin=mysql_fetch_array(mysql_query("SELECT `username`,`ga_token` FROM `admins` WHERE `username`='".prot($_POST['hash_one'])."' AND `passwd`='".md5($_POST['hash_sec'])."' LIMIT 1"));
+  if ($this_admin === FALSE) {
+      header('Location: ./?login_error');
+      exit;
+  }
   if ($this_admin['ga_token']=='') {
     $_SESSION['logged_']=true;
     $_SESSION['username']=$this_admin['username'];
