@@ -273,7 +273,7 @@ if ($step==3 && (!is_writable('../inc/db-conf.php') || !is_writable('../inc/driv
             <br><br>
             2) <i>Add the following line:</i>
             <br>
-            * * * * * cd /var/www/content/cron; php check_deposits.php;
+            * * * * * cd <?php echo realpath(__DIR__ . '/../content/cron');?>; php check_deposits.php;
             <br><br>
             3) Save CRON table by pressing <b>CTRL</b>+<b>X</b>, than confirm (<b>Y</b>) and press <b>enter</b>.
             <br><br>
