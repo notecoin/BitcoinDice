@@ -263,7 +263,7 @@ if ($step==3 && (!is_writable('../inc/db-conf.php') || !is_writable('../inc/driv
             <h3>CRON setup</h3>
             In order to BitcoinDice work properly, you must have the CRON set this way:
             <br><br>
-            <b>Every 1 minute</b>: <i><?php echo realpath(__DIR__ . '/../content/cron');?>/check_deposits.php</i>
+            <b>Every 1 minute</b>: <i>content/cron/check_deposits.php</i>
             <br><br><hr>
             <b>Example (Linux):</b>
             <br><br>
