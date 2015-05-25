@@ -13,6 +13,16 @@ if (isset($_GET['checkCons'])) {
     exit();
   }
 
+if(isset($_POST['mform'])) {
+		if(IsChecked('rpcssl','enabled'))
+        {
+			$rpcproto='https';
+        }else{
+			$rpcproto='http';
+		}
+ 
+  }
+  
   $included_=true;
   include 'db_data.php';
   
@@ -27,7 +37,8 @@ if (isset($_GET['checkCons'])) {
 
   $w_file=fopen('../inc/driver-conf.php','wb');
   fwrite($w_file,"<?php \n");          
-  fwrite($w_file,'$driver_login=\'http://'.$_POST['w_user'].':'.$_POST['w_pass'].'@'.$_POST['w_host'].':'.$_POST['w_port'].'/\';'."\n");
+  fwrite($w_file,'$driver_login=\''.$rpcproto.'://'.$_POST['w_user'].':'.$_POST['w_pass'].'@'.$_POST['w_host'].':'.$_POST['w_port'].'/\';'."\n");
+  fwrite($w_file,'$DiceAccount=\''.$_POST['w_account'].'\';'."\n");
   fwrite($w_file,"?>");      ?><?php
   fclose($w_file);
 
@@ -170,6 +181,10 @@ if ($step==3 && (!is_writable('../inc/db-conf.php') || !is_writable('../inc/driv
               <i>Please fill in correct wallet info:</i>
               <br>
               <table>
+			    <tr>
+                  <td>Rpc Ssl:</td>
+                  <td><input type="checkbox" name="rpcssl[]" value="enabled" /> <small>(If enabled, make shore to setup bitcoind accordingly.)</small><br /></td>
+                </tr>
                 <tr>
                   <td>Host:</td>
                   <td><input type="text" name="w_host" id="w_host" value="localhost"></td>
@@ -185,6 +200,10 @@ if ($step==3 && (!is_writable('../inc/db-conf.php') || !is_writable('../inc/driv
                 <tr>
                   <td>Port:</td>
                   <td><input type="text" name="w_port" id="w_port" placeholder="Wallet port"></td>
+                </tr>
+                <tr>
+                  <td>Account:</td>
+                  <td><input type="text" name="w_account" id="w_account" placeholder="Wallet Account"></td>
                 </tr>
               </table>
             </form>
@@ -244,7 +263,7 @@ if ($step==3 && (!is_writable('../inc/db-conf.php') || !is_writable('../inc/driv
             <h3>CRON setup</h3>
             In order to BitcoinDice work properly, you must have the CRON set this way:
             <br><br>
-            <b>Every 1 minute</b>: <i>content/cron/check_deposits.php</i>
+            <b>Every 1 minute</b>: <i><?php echo realpath(__DIR__ . '/../content/cron');?>/check_deposits.php</i>
             <br><br><hr>
             <b>Example (Linux):</b>
             <br><br>
@@ -254,7 +273,7 @@ if ($step==3 && (!is_writable('../inc/db-conf.php') || !is_writable('../inc/driv
             <br><br>
             2) <i>Add the following line:</i>
             <br>
-            * * * * * cd /var/www/content/cron; php check_deposits.php;
+            * * * * * cd <?php echo realpath(__DIR__ . '/../content/cron');?>; php check_deposits.php;
             <br><br>
             3) Save CRON table by pressing <b>CTRL</b>+<b>X</b>, than confirm (<b>Y</b>) and press <b>enter</b>.
             <br><br>

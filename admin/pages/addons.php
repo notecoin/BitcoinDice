@@ -15,6 +15,11 @@ if (isset($_POST['addons_form']))
 <h1>Addons</h1>
 <form method="post" action="./?p=addons">
   <input type="hidden" name="addons_form" value="1">
+  <!--<fieldset>
+    <legend>Cron</legend>
+    <input type="checkbox" value="1"<?php if ($settings['cron_enable']==1) echo ' checked="checked"'; ?> id="cron_chckbx" name="cron_enable">
+    <label for="cron_chckbx" class="chckbxLabel">Enable</label>
+  </fieldset>-->
   <fieldset>
     <legend>Chat</legend>
     <input type="checkbox" value="1"<?php if ($settings['chat_enable']==1) echo ' checked="checked"'; ?> id="chat_chckbx" name="chat_enable">

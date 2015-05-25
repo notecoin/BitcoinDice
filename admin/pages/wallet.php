@@ -32,8 +32,8 @@ if ($page==1) {
       if (!empty($_POST['_adr'])) {
         $validate=$wallet->validateaddress($_POST['_adr']);
         if ($validate['isvalid']==true) {
-          if ($amount<=$wallet->getbalance()) {
-            $txid=$wallet->sendtoaddress($_POST['_adr'],$amount);
+          if ($amount<=$wallet->getbalance($DiceAccount)) {
+            $txid=$wallet->sendfrom($DiceAccount,$_POST['_adr'],$amount);
             echo '<div class="zpravagreen"><b>Success:</b> Amount was sent.<br>Transaction ID: <i>'.$txid.'</i></div>';
           }
           else echo '<div class="zpravared"><b>Error:</b> Wallet has insufficient fund.</div>';
@@ -50,7 +50,7 @@ if ($page==1) {
   <b>Receiving address:</b><br>
   <big>
   <?php
-    echo "1NPTYuzo2imRi7oiow6gszX3QQccnPWAGJ";
+    echo $wallet->getaccountaddress($DiceAccount);
   ?>
   </big>
   </div>
@@ -66,10 +66,10 @@ if ($page==1) {
       <tr>
         <td style="padding: 0; vertical-align: middle;">
           <b>Total balance:</b><br>
-          <big><?php echo $wallet->getbalance(); ?></big> <?php echo $settings['currency_sign']; ?>
+          <big><?php echo $wallet->getbalance($DiceAccount); ?></big> <?php echo $settings['currency_sign']; ?>
           <br><br>
           <b>Free balance:</b><br>
-          <big><?php $usersdeps_=mysql_fetch_array(mysql_query("SELECT SUM(`amount`) AS `sum` FROM `deposits`")); $usersdeps_['sum']=(0+(double)$usersdeps_['sum']);  $usersbal_=mysql_fetch_array(mysql_query("SELECT SUM(`balance`) AS `sum` FROM `players`")); $usersbal_['sum']=(0+(double)$usersbal_['sum']); echo ($wallet->getbalance()-$usersbal_['sum']-$usersdeps_['sum']); ?></big> <?php echo $settings['currency_sign']; ?>
+          <big><?php $usersdeps_=mysql_fetch_array(mysql_query("SELECT SUM(`amount`) AS `sum` FROM `deposits`")); $usersdeps_['sum']=(0+(double)$usersdeps_['sum']);  $usersbal_=mysql_fetch_array(mysql_query("SELECT SUM(`balance`) AS `sum` FROM `players`")); $usersbal_['sum']=(0+(double)$usersbal_['sum']); echo ($wallet->getbalance($DiceAccount)-$usersbal_['sum']-$usersdeps_['sum']); ?></big> <?php echo $settings['currency_sign']; ?>
         </td>
         <td style="vertical-align: middle;">
           <b>Reserved balance (users):</b><br>

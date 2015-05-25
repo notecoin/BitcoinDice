@@ -45,7 +45,7 @@ if ($wager<0.00000001 && $wager!=0) {
 }
 $reservedBalance=mysql_fetch_array(mysql_query("SELECT SUM(`balance`) AS `sum` FROM `players`"));
 $reservedWaitingBalance=mysql_fetch_array(mysql_query("SELECT SUM(`amount`) AS `sum` FROM `deposits`"));
-$serverBalance=$wallet->getbalance();
+$serverBalance=$wallet->getbalance($DiceAccount);
 $serverFreeBalance=($serverBalance-$reservedBalance['sum']-$reservedWaitingBalance['sum']);
 
 $jakynasobekminimalne=$settings['bankroll_maxbet_ratio'];
